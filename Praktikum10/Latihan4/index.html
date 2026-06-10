@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">Oasis.</div>
+            <nav class="side-nav">
+                <a href="#" class="active">Overview</a>
+                <a href="#">Analytics</a>
+                <a href="#">Settings</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header class="top-header">
+                <h2>Welcome back, Naufal</h2>
+                <button class="menu-toggle">☰</button>
+            </header>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Views</h3>
+                    <p class="value">24,592</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Engagement</h3>
+                    <p class="value">12.5%</p>
+                </div>
+                <div class="stat-card">
+                    <h3>New Users</h3>
+                    <p class="value">1,240</p>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <p>Resize the browser window to see the responsive behavior.</p>
+                <p>On larger screens, you see a side navigation and a 3-column stats grid. On smaller screens, the layout gracefully collapses into a single column.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

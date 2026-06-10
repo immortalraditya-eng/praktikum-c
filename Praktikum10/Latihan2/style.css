@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+    background-color: #050505;
+    color: #fafafa;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background Grid Pattern */
+.background-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Floating Dock Navbar */
+.floating-dock {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1rem;
+    border-radius: 100px; /* Pill shape */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-dock:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 50px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.logo-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    color: #050505;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logo-circle:hover {
+    transform: rotate(90deg);
+}
+
+.nav-separator {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.dock-links {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+.dock-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    color: #a3a3a3;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dock-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+/* Tooltip on Hover */
+.tooltip {
+    position: absolute;
+    top: 60px;
+    background: #fff;
+    color: #050505;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background: #fff;
+}
+
+.dock-item:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Call to Action Button */
+.btn-neo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    background: linear-gradient(135deg, #e0e0e0, #ffffff);
+    color: #050505;
+    padding: 0.75rem 1.25rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-neo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.hero-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: #a3a3a3;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, #737373);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+    font-size: 1.25rem;
+    color: #a3a3a3;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .floating-dock {
+        width: 90%;
+        justify-content: space-between;
+        padding: 0.5rem;
+    }
+    .dock-links {
+        gap: 0.25rem;
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+}
